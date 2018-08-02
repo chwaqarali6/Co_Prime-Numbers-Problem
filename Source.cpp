@@ -1,44 +1,43 @@
-#include <iostream>
-#include <conio.h>
+#include<bits/stdc++.h>
 using namespace std;
 
-void main()
+int main()
 {
 	//Initializing Variables
-	int Input1 = 0, Input2 = 0, Count = 0, Divider = 1, Maximum = 0;
+	int Input1, Input2, Divider = 2, Minimum, flag = 1 ;
 
 	//Taking Inputs
-	cout << "Please Enter The First Number:- ";
+	//cout << "Please Enter The First Number:- ";
 	cin >> Input1;
-	cout << "Please Enter The Second Number:- ";
+	//cout << "Please Enter The Second Number:- ";
 	cin >> Input2;
 
-	//Checking For Maximum Input To Set Conidition That Diviser Should Not Be Greater Than Input
-	if (Input1>Input2)
-		Maximum = Input1;
+	//Checking For Minimum Input To Set Conidition That Diviser Should Not Be Greater Than Input
+	if (Input1<Input2)
+		Minimum = Input1;
 	else
-		Maximum = Input2;
+		Minimum = Input2;
 
-	//Loop To Count How Many Common Factors Exist Of Two Inputs
-	while (Divider <= Maximum)
+	//Checking Co Prime
+	while (Divider <= Minimum)
 	{
 		if (Input1%Divider == 0)
 		{
 			if (Input2%Divider == 0)
 			{
-				Count++;
+				flag = 0 ;
+				break ;
 			}
 		}
-
-		Divider++;
+		Divider++ ;
 	}
 
 	//Condition To Give Output
-	//Condition Is True If Co-Factor Is Only 1 i.e. Count==1
-	if (Count == 1)
+	//Condition Is True If Flag==1
+	if (flag == 1)
 		cout << "The Numbers Are Co-Prime";
 	else
 		cout << "The Numbers Are Not Co-Prime";
 
-	_getch();
+	return 0 ;
 }
